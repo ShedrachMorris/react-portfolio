@@ -1,0 +1,455 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+  --color-primary: #191d2b;
+  /* blob gradient colors as RGB components so we can animate/opacify reliably */
+  --blob-a-start: 48,97,187; /* blue */
+  --blob-a-end: 79,70,229; /* indigo */
+  --blob-b-start: 79,70,229;
+  --blob-b-end: 48,97,187;
+  --blob-c-start: 6,182,212;
+  --blob-c-end: 0,122,255;
+  /* CSS variables for page backgrounds so the reveal can pick them */
+  --page-bg-dark: #191d2b;
+  --page-bg-light: #ffffff;
+}
+
+body{
+  @apply bg-[#191d2b] text-white;
+  overflow-x: hidden;
+}
+
+.blob {
+  position: fixed;
+  width: 200px;
+  height: 200px;
+  /* use CSS variables for colors so we can override in light-mode */
+  background: linear-gradient(45deg, rgba(var(--blob-a-start), 0.38), rgba(var(--blob-a-end), 0.38));
+  filter: blur(20px);
+  animation: blobMove 20s ease-in-out infinite;
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0.45;
+  transition: background .45s ease, opacity .45s ease, filter .45s ease;
+}
+
+.blob:nth-child(1) {
+  border-radius: 60% 40% 30% 70%;
+  top: 10%;
+  left: 10%;
+  background: linear-gradient(45deg, rgba(var(--blob-a-start), 0.38), rgba(var(--blob-a-end), 0.38));
+}
+
+.blob:nth-child(2) {
+  border-radius: 30% 60% 70% 40%;
+  top: 20%;
+  right: 20%;
+  animation-delay: -5s;
+  animation-duration: 25s;
+  background: linear-gradient(45deg, rgba(var(--blob-b-start), 0.28), rgba(var(--blob-b-end), 0.28));
+}
+
+.blob:nth-child(3) {
+  border-radius: 70% 30% 40% 60%;
+  bottom: 20%;
+  left: 10%;
+  animation-delay: -10s;
+  animation-duration: 30s;
+  background: linear-gradient(45deg, rgba(var(--blob-c-start), 0.28), rgba(var(--blob-c-end), 0.28));
+}
+
+@keyframes blobMove {
+  0%, 100% {
+    transform: translateX(0) translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateX(150px) translateY(-80px) rotate(90deg);
+  }
+  50% {
+    transform: translateX(-80px) translateY(150px) rotate(180deg);
+  }
+  75% {
+    transform: translateX(-150px) translateY(-150px) rotate(270deg);
+  }
+}
+
+.font-poppins{font-family: 'Poppins', sans-serif}
+
+/* Professional Animations */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-50px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(50px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(48, 97, 187, 0.3); }
+  50% { box-shadow: 0 0 30px rgba(48, 97, 187, 0.6); }
+}
+
+@keyframes typewriter {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes shutterInLeft {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(0); }
+}
+
+@keyframes shutterInRight {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+
+@keyframes slideUpOnScroll {
+  from { opacity: 0; transform: translateY(50px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Animation Classes */
+.animate-fade-in-up { animation: fadeInUp 0.8s ease-out forwards; }
+.animate-slide-in-left { animation: slideInLeft 0.8s ease-out forwards; }
+.animate-slide-in-right { animation: slideInRight 0.8s ease-out forwards; }
+.animate-scale-in { animation: scaleIn 0.6s ease-out forwards; }
+.animate-float { animation: float 3s ease-in-out infinite; }
+.animate-glow { animation: glow 2s ease-in-out infinite; }
+
+.animate-glow { animation: glow 2s ease-in-out infinite; }
+
+/* Scroll animations */
+.scroll-animate {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s ease-out;
+}
+
+.scroll-animate.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered animations */
+.animate-delay-200 { animation-delay: 0.2s; }
+.animate-delay-400 { animation-delay: 0.4s; }
+.animate-delay-600 { animation-delay: 0.6s; }
+
+/* Professional hover effects */
+.hover-lift {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.hover-lift:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.hover-scale {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.hover-scale:hover {
+  transform: scale(1.05);
+}
+
+/* Enhanced button styles */
+.main-btn {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(48, 97, 187, 0.3);
+}
+.main-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s;
+}
+.main-btn:hover::before {
+  left: 100%;
+}
+.main-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(48, 97, 187, 0.4);
+}
+
+/* Enhanced clip-path with animation */
+.clip-path {
+  clip-path: polygon(0 0, 46% 0, 79% 100%, 0% 100%);
+  transition: all 0.5s ease;
+}
+.clip-path:hover {
+  clip-path: polygon(0 0, 50% 0, 85% 100%, 0% 100%);
+}
+
+/* Professional gradient backgrounds */
+.gradient-bg {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+/* Portfolio item enhancements */
+.portfolio-item {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.portfolio-item:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+}
+
+/* helper classes that were in original styles */
+.main-title h2{font-size:1.8rem}
+.stat-title{font-size:1rem}
+
+/* responsive spacing for container similar to original padding */
+@media (min-width: 1024px){
+  section{padding-left:4.5rem;padding-right:4.5rem}
+}
+
+/* small transitions */
+img{transition:all .3s ease-in-out}
+
+/* Navigation controls: hover and active styles */
+.control{
+  transition:all .3s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.control i{color:#dbe1e8;transition:color .18s ease}
+.control:hover{
+  background-color:#3061bb;
+  transform: scale(1.1);
+  box-shadow: 0 8px 20px rgba(48, 97, 187, 0.4);
+}
+.control:hover i{color:#fff}
+/* active state applied dynamically */
+.active-btn{background-color:#3061bb !important; transform: scale(1.1);}
+.active-btn i{color:#fff !important}
+
+/* Light mode overrides - target body and all descendants */
+body.light-mode {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
+
+body.light-mode * {
+  color: #000000 !important;
+}
+
+/* Override specific blue text to red in light mode */
+body.light-mode [class*="text-[#3061bb]"],
+body.light-mode .text-\[\#3061bb\] {
+  color: #dc2626 !important;
+}
+
+/* Override blue backgrounds to red in light mode */
+body.light-mode [class*="bg-[#3061bb]"],
+body.light-mode .bg-\[\#3061bb\],
+body.light-mode .main-btn {
+  background-color: #dc2626 !important;
+  color: #ffffff !important;
+}
+
+/* Controls styling for light mode */
+body.light-mode .control {
+  background-color: #e5e7eb !important;
+  color: #374151 !important;
+}
+body.light-mode .control i {
+  color: #374151 !important;
+}
+body.light-mode .control:hover {
+  background-color: #dc2626 !important;
+}
+body.light-mode .control:hover i {
+  color: #ffffff !important;
+}
+body.light-mode .active-btn {
+  background-color: #dc2626 !important;
+}
+body.light-mode .active-btn i {
+  color: #ffffff !important;
+}
+
+/* Theme toggle button */
+body.light-mode .theme-btn {
+  background-color: #e5e7eb !important;
+}
+body.light-mode .theme-btn i {
+  color: #374151 !important;
+}
+
+/* Light mode button glow */
+body.light-mode .main-btn {
+  box-shadow: 0 4px 15px rgba(220, 38, 38, 0.3) !important;
+}
+body.light-mode .main-btn:hover {
+  box-shadow: 0 8px 25px rgba(220, 38, 38, 0.4) !important;
+}
+
+/* Light mode blob overrides: change RGB variables and slightly increase opacity for visibility */
+body.light-mode {
+  --blob-a-start: 220,38,38; /* red */
+  --blob-a-end: 239,68,68;
+  --blob-b-start: 245,158,11; /* amber */
+  --blob-b-end: 244,63,94; /* pinkish */
+  --blob-c-start: 99,102,241; /* violet */
+  --blob-c-end: 79,70,229;
+}
+
+/* Also allow .blob opacity to change in light mode for a smooth visual change */
+body.light-mode .blob { opacity: 0.55; }
+
+/* theme-transition helper already ensures transitions are applied; make sure blobs respond to it */
+.theme-transition .blob, .theme-transition body .blob {
+  transition: background .45s ease, opacity .45s ease, filter .45s ease;
+}
+
+/* theme transition helper used when toggling theme */
+.theme-transition *,
+.theme-transition *::before,
+.theme-transition *::after {
+  transition: background-color .45s ease, color .45s ease, fill .45s ease, border-color .45s ease;
+}
+
+/* theme button animation */
+.theme-btn.animating { transform: rotate(160deg) scale(1.06); transition: transform .6s cubic-bezier(.2,.9,.3,1); }
+.theme-btn i { transition: transform .3s ease, color .3s ease; }
+
+/* reveal/ripple element that expands from toggle */
+.theme-reveal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0.01);
+  pointer-events: none;
+  z-index: 5;
+  transition: transform 1.9s cubic-bezier(.2,.9,.3,1), opacity .45s ease;
+  opacity: 1;
+}
+.theme-reveal.expand {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* when theme-transition is applied, make reveals smoother */
+.theme-transition .theme-reveal {
+  transition: transform 1.9s cubic-bezier(.2,.9,.3,1), opacity .45s ease;
+}
+
+/* ensure reveal sits above regular content but below fixed UI like theme button (we'll keep z-index high) */
+.theme-reveal { z-index: 5 !important; pointer-events: none; }
+#root { position: relative; z-index: 10; }
+/* keep the theme button above the reveal */
+.theme-btn { z-index: 20 !important; }
+
+/* typing cursor */
+.typed-cursor {
+  display: inline-block;
+  width: 10px; /* increased cursor width */
+  height: 1.1em;
+  margin-left: 6px;
+  background: var(--cursor-color, #b2becd);
+  vertical-align: bottom;
+  border-radius: 2px;
+  animation: blink 1s steps(2, start) infinite;
+  /* hide any textual content (we keep the '|' in markup for accessibility but render a block) */
+  color: transparent;
+  text-indent: -9999px;
+  overflow: hidden;
+}
+
+@keyframes blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+/* optionally style typed text */
+.typed-text { font-weight: 600; }
+
+/* Mobile-first responsive overrides for better small-screen behavior */
+@media (max-width: 767px) {
+  /* Slightly tighter container padding on phones */
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  /* Sections shouldn't force full-screen height on small screens */
+  section {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    min-height: auto !important;
+  }
+
+  /* Collapse all grid layouts to a single column for clarity on phones */
+  .grid {
+    grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+    gap: 1rem !important;
+  }
+
+  /* Make image containers more flexible and avoid fixed overflow on small screens */
+  .image {
+    height: auto !important;
+    max-height: 360px;
+  }
+  .image img {
+    height: auto !important;
+    max-height: 360px;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  /* Increase touch targets for primary buttons */
+  .main-btn {
+    min-height: 48px !important;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+    font-size: 1rem !important;
+  }
+
+  /* Ensure typed text wraps and does not overflow */
+  .typed-text {
+    display: inline-block;
+    max-width: 60vw;
+    white-space: normal;
+    word-break: break-word;
+  }
+
+  /* Slightly smaller cursor spacing on phones */
+  .typed-cursor { margin-left: 4px; }
+
+  /* Reduce shadow intensity on mobile for performance */
+  .hover-lift, .main-btn, .portfolio-item { box-shadow: none !important; }
+}
+
+/* Ensure images across the site don't overflow their containers */
+img{max-width:100%;height:auto;}
