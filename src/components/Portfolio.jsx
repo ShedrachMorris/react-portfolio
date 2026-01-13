@@ -1,8 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import port1 from "/img/port1.jpg";
-import port2 from "/img/port2.jpg";
-import port3 from "/img/port3.jpg";
-import port4 from "/img/port4.jpg";
+import { portfolioProjects } from "../data/portfolioData";
 
 export default function Portfolio() {
   const [titleVisible, setTitleVisible] = useState(false);
@@ -43,27 +40,32 @@ export default function Portfolio() {
         </p>
       </div>
       <div ref={itemsRef} className={`portfolios grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-12 scroll-animate ${itemsVisible ? 'animate' : ''}`}>
-        {[port1, port2, port3, port4].map((src, i) => (
+        {portfolioProjects.map((project) => (
           <div
-            key={i}
+            key={project.id}
             className="portfolio-item relative overflow-hidden rounded-xl hover-lift shadow-lg"
           >
-            <div className="image w-full h-64 md:h-56 lg:h-64 relative overflow-hidden">
+            <div className="image w-full h-80 md:h-72 lg:h-80 relative overflow-hidden">
               <img
-                src={src}
-                alt={`Project ${i + 1}`}
+                src={project.image}
+                alt={project.title}
                 className="w-full h-full object-cover transition-all duration-500 hover:scale-110"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
             </div>
             <div className="hover-items absolute inset-0 bg-gradient-to-br from-[#3061bb]/90 to-[#4f46e5]/90 flex flex-col items-center justify-center opacity-0 hover:opacity-100 transition-all duration-400 backdrop-blur-sm">
-              <h3 className="text-xl font-semibold mb-2 transform translate-y-4 hover:translate-y-0 transition-transform duration-300">Project {i + 1}</h3>
-              <p className="text-sm mb-4 text-center px-4 transform translate-y-4 hover:translate-y-0 transition-transform duration-300 delay-75">Modern web application</p>
+              <h3 className="text-xl font-semibold mb-2 transform translate-y-4 hover:translate-y-0 transition-transform duration-300">{project.title}</h3>
+              <p className="text-sm mb-3 text-center px-4 transform translate-y-4 hover:translate-y-0 transition-transform duration-300 delay-75">{project.description}</p>
+              <div className="flex flex-wrap gap-1 mb-4 px-4 justify-center transform translate-y-4 hover:translate-y-0 transition-transform duration-300 delay-100">
+                {project.technologies.map((tech, index) => (
+                  <span key={index} className="text-xs bg-white/20 px-2 py-1 rounded-full">{tech}</span>
+                ))}
+              </div>
               <div className="icons flex gap-4 transform translate-y-4 hover:translate-y-0 transition-transform duration-300 delay-150">
-                <a href="#" className="icon w-10 h-10 bg-white/20 rounded-full flex items-center justify-center hover:bg-white/30 hover:scale-110 transition-all duration-200">
+                <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="icon w-10 h-10 bg-white/20 rounded-full flex items-center justify-center hover:bg-white/30 hover:scale-110 transition-all duration-200">
                   <i className="fab fa-github text-lg"></i>
                 </a>
-                <a href="#" className="icon w-10 h-10 bg-white/20 rounded-full flex items-center justify-center hover:bg-white/30 hover:scale-110 transition-all duration-200">
+                <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="icon w-10 h-10 bg-white/20 rounded-full flex items-center justify-center hover:bg-white/30 hover:scale-110 transition-all duration-200">
                   <i className="fas fa-external-link-alt text-lg"></i>
                 </a>
               </div>

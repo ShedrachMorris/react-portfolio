@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import hero from "/img/hero.jpg";
+import hero from "../assets/hero.jpg";
 import resumePdf from "../assets/shedrach new resume.pdf";
 
 export default function Header() {

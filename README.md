@@ -1,6 +1,6 @@
 # React Portfolio (Vite + React + Tailwind)
 
-This folder contains a Vite + React conversion of the original static portfolio.
+This folder contains a Vite + React project of my portfolio.
 
 Quick start:
 
