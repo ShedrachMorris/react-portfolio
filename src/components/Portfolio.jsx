@@ -39,7 +39,7 @@ export default function Portfolio() {
           Here is some of my work that I've done in various programming languages and modern frameworks.
         </p>
       </div>
-      <div ref={itemsRef} className={`portfolios grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-12 scroll-animate ${itemsVisible ? 'animate' : ''}`}>
+      <div ref={itemsRef} className={`portfolios grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-12 scroll-animate ${itemsVisible ? 'animate' : ''}`}>
         {portfolioProjects.map((project) => (
           <div
             key={project.id}
