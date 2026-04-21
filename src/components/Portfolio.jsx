@@ -29,7 +29,7 @@ export default function Portfolio() {
   return (
     <section
       id="portfolio"
-      className="container mx-auto py-16 relative px-4 md:px-20"
+      className="container mx-auto py-10 md:py-16 relative px-4 sm:px-8 md:px-12"
     >
       <div ref={titleRef} className={`section-header-cool scroll-animate ${titleVisible ? 'animate' : ''}`}>
         <span className="bg-text">Portfolio</span>
@@ -37,17 +37,17 @@ export default function Portfolio() {
           My <span className="text-[#3061bb] bg-gradient-to-r from-[#3061bb] to-[#4f46e5] bg-clip-text text-transparent">Portfolio</span>
         </h2>
         <div className="underline"></div>
-        <p className="port-text py-6 text-center text-lg text-[#dbe1e8] max-w-2xl mx-auto">
+        <p className="port-text hidden sm:block py-4 text-center text-sm md:text-lg text-[#dbe1e8] max-w-2xl mx-auto">
           Here is some of my work that I've done in various programming languages and modern frameworks.
         </p>
       </div>
-      <div ref={itemsRef} className={`portfolios grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-12 scroll-animate ${itemsVisible ? 'animate' : ''}`}>
+      <div ref={itemsRef} className={`portfolios grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mt-8 scroll-animate ${itemsVisible ? 'animate' : ''}`}>
         {portfolioProjects.map((project) => (
           <div
             key={project.id}
             className="portfolio-item relative overflow-hidden rounded-xl hover-lift shadow-lg"
           >
-            <div className="image w-full h-80 md:h-72 lg:h-80 relative overflow-hidden">
+            <div className="image w-full h-56 sm:h-64 md:h-72 lg:h-80 relative overflow-hidden">
               <img
                 src={project.image}
                 alt={project.title}

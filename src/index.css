@@ -168,6 +168,7 @@ img {
   position: relative;
   margin-bottom: 4rem;
   text-align: center;
+  overflow: hidden; /* prevent bg-text from causing horizontal scroll */
 }
 
 .section-header-cool .bg-text {
@@ -175,11 +176,11 @@ img {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 5rem;
+  font-size: clamp(3rem, 10vw, 5rem); /* shrinks on small screens */
   font-weight: 800;
   color: rgba(255, 255, 255, 0.04);
   text-transform: uppercase;
-  letter-spacing: 15px;
+  letter-spacing: clamp(4px, 2vw, 15px);
   z-index: 0;
   white-space: nowrap;
   pointer-events: none;
