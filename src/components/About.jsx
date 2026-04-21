@@ -36,13 +36,15 @@ export default function About() {
     >
       <div
         ref={titleRef}
-        className={`main-title scroll-animate text-center ${
+        className={`section-header-cool scroll-animate ${
           titleVisible ? "animate" : ""
         }`}
       >
+        <span className="bg-text">About</span>
         <h2 className="text-2xl md:text-3xl">
           About <span className="text-[#3061bb]">me</span>
         </h2>
+        <div className="underline"></div>
       </div>
       <div
         ref={contentRef}
@@ -55,11 +57,11 @@ export default function About() {
             Information About me
           </h4>
           <p className="mt-4 text-[#dbe1e8] leading-7 md:leading-8 text-justify mr-16 sm:mr-20">
-            Hello there! I'm Shedrach Morris Uzoigwe, a results-driven software
-            developer residing in Lagos State, Nigeria. My passion for crafting
-            exceptional digital solutions has fueled my journey in the world of
-            software development. I specialize in web and mobile development,
-            and I'm dedicated to bringing innovative digital solutions to life.
+            Hello there! I'm Shedrach Morris Uzoigwe, Full-stack engineer bridging the gap between physical hardware 
+            and scalable software. With a foundation in computer hardware engineering at Olive Computer, I build clean, 
+            documented, and maintainable systems using NestJS, React, and Prisma. I recently automated booking workflows 
+            for LuxHome (reducing errors by 30%) and streamlined API documentation at Princeps Credit Systems (cutting 
+            integration issues by 40%). I don’t just write code, I optimize the entire system, from database queries to user sessions.
             <br />
             <br />I am fueled by the thrill of problem-solving and am constantly
             seeking new challenges to push my boundaries. Whether it's
@@ -79,41 +81,46 @@ export default function About() {
           skillsVisible ? "animate" : ""
         }`}
       >
-        <h4 className="stat-title text-center uppercase text-lg md:text-xl pb-6">
-          Skills
-        </h4>
-        <div className="grid grid-cols-3 md:grid-cols-7 gap-6 px-2 md:px-0">
-          <div className="flex flex-col items-center">
-            <i className="fab fa-js-square text-4xl text-[#f7df1e] mb-2"></i>
-            <p className="uppercase font-medium text-sm">JavaScript</p>
+        <div className="section-header-cool pb-6">
+          <span className="bg-text">Skills</span>
+          <h4 className="text-xl md:text-2xl uppercase">
+            Skills
+          </h4>
+          <div className="underline"></div>
+        </div>
+        <div className="skills-grid grid grid-cols-2 md:grid-cols-7 gap-6 px-2 md:px-0">
+          <div className="skill-card flex flex-col items-center p-6 border border-[#2a2e35] rounded-xl bg-[#191d2b] shadow-lg transition-all duration-300 hover:border-[#3061bb] hover:-translate-y-2">
+            <i className="fab fa-js-square text-4xl text-[#f7df1e] mb-4"></i>
+            <p className="uppercase font-medium text-xs md:text-sm">JavaScript</p>
           </div>
-          <div className="flex flex-col items-center">
-            <i className="fab fa-node-js text-4xl text-[#e0234e] mb-2"></i>
-            <p className="uppercase font-medium text-sm">NestJS</p>
+          <div className="skill-card flex flex-col items-center p-6 border border-[#2a2e35] rounded-xl bg-[#191d2b] shadow-lg transition-all duration-300 hover:border-[#3061bb] hover:-translate-y-2">
+            <i className="fab fa-node-js text-4xl text-[#e0234e] mb-4"></i>
+            <p className="uppercase font-medium text-xs md:text-sm">NestJS</p>
           </div>
-          <div className="flex flex-col items-center">
-            <i className="fab fa-react text-4xl text-[#61dafb] mb-2"></i>
-            <p className="uppercase font-medium text-sm">React.JS</p>
+          <div className="skill-card flex flex-col items-center p-6 border border-[#2a2e35] rounded-xl bg-[#191d2b] shadow-lg transition-all duration-300 hover:border-[#3061bb] hover:-translate-y-2">
+            <i className="fab fa-react text-4xl text-[#61dafb] mb-4"></i>
+            <p className="uppercase font-medium text-xs md:text-sm">React.JS</p>
           </div>
-          <div className="flex flex-col items-center">
-            <svg className="w-10 h-10 mb-2" viewBox="0 0 24 24" fill="#06b6d4">
+          <div className="skill-card flex flex-col items-center p-6 border border-[#2a2e35] rounded-xl bg-[#191d2b] shadow-lg transition-all duration-300 hover:border-[#3061bb] hover:-translate-y-2">
+            <svg className="w-10 h-10 mb-4" viewBox="0 0 24 24" fill="#06b6d4">
               <path d="M12.001,4.8c-3.2,0-5.2,1.6-6,4.8c1.2-1.6,2.6-2.2,4.2-1.8c0.913,0.228,1.565,0.89,2.288,1.624 C13.666,10.618,15.027,12,18.001,12c3.2,0,5.2-1.6,6-4.8c-1.2,1.6-2.6,2.2-4.2,1.8c-0.913-0.228-1.565-0.89-2.288-1.624 C16.337,6.182,14.976,4.8,12.001,4.8z M6.001,12c-3.2,0-5.2,1.6-6,4.8c1.2-1.6,2.6-2.2,4.2-1.8c0.913,0.228,1.565,0.89,2.288,1.624 C7.666,17.818,9.027,19.2,12.001,19.2c3.2,0,5.2-1.6,6-4.8c-1.2,1.6-2.6,2.2-4.2,1.8c-0.913-0.228-1.565-0.89-2.288-1.624 C10.337,13.382,8.976,12,6.001,12z" />
             </svg>
-            <p className="uppercase font-medium text-sm">Tailwind Css</p>
+            <p className="uppercase font-medium text-xs md:text-sm">Tailwind Css</p>
           </div>
-          <div className="flex flex-col items-center">
-            <i className="fab fa-python text-4xl text-[#3776ab] mb-2"></i>
-            <p className="uppercase font-medium text-sm">Python</p>
+          <div className="skill-card flex flex-col items-center p-6 border border-[#2a2e35] rounded-xl bg-[#191d2b] shadow-lg transition-all duration-300 hover:border-[#3061bb] hover:-translate-y-2">
+            <i className="fab fa-python text-4xl text-[#3776ab] mb-4"></i>
+            <p className="uppercase font-medium text-xs md:text-sm">Python</p>
           </div>
-          <div className="flex flex-col items-center">
-            <i className="fab fa-js-square text-4xl text-[#3178c6] mb-2"></i>
-            <p className="uppercase font-medium text-sm">TypeScript</p>
+          <div className="skill-card flex flex-col items-center p-6 border border-[#2a2e35] rounded-xl bg-[#191d2b] shadow-lg transition-all duration-300 hover:border-[#3061bb] hover:-translate-y-2">
+            <i className="fab fa-js-square text-4xl text-[#3178c6] mb-4"></i>
+            <p className="uppercase font-medium text-xs md:text-sm">TypeScript</p>
           </div>
-          <div className="flex flex-col items-center">
-            <svg className="w-10 h-10 mb-2" viewBox="0 0 24 24" fill="#02569b">
-              <path d="M14.314 0L12 2.828L9.686 0H0l9.686 9.686L12 7.372l2.314 2.314L24 0h-9.686zM0 24l9.686-9.686L12 16.628l2.314-2.314L24 24H0z" />
+          <div className="skill-card flex flex-col items-center p-6 border border-[#2a2e35] rounded-xl bg-[#191d2b] shadow-lg transition-all duration-300 hover:border-[#3061bb] hover:-translate-y-2">
+            <svg className="w-10 h-10 mb-4" viewBox="0 0 166.3 200">
+              <path fill="#40D3FE" d="M166.3 100L111.4 154.9 56.4 100 111.4 45.1z" />
+              <path fill="#02539A" d="M111.4 45.1L56.4 100 0 43.6 56.4 0zm0 109.8L56.4 100 0 156.4 56.4 200z" />
             </svg>
-            <p className="uppercase font-medium text-sm">Flutter</p>
+            <p className="uppercase font-medium text-xs md:text-sm">Flutter</p>
           </div>
         </div>
       </div>
