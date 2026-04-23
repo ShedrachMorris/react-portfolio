@@ -34,7 +34,7 @@ export default function Portfolio() {
       <div ref={titleRef} className={`section-header-cool scroll-animate ${titleVisible ? 'animate' : ''}`}>
         <span className="bg-text">Portfolio</span>
         <h2 className="text-3xl md:text-4xl font-bold">
-          My <span className="text-[#3061bb] bg-gradient-to-r from-[#3061bb] to-[#4f46e5] bg-clip-text text-transparent">Portfolio</span>
+          My <span className="text-[#3061bb] bg-gradient-to-r from-[#3061bb] to-[#4f46e5] bg-clip-text text-transparent">Projects</span>
         </h2>
         <div className="underline"></div>
         <p className="port-text hidden sm:block py-4 text-center text-sm md:text-lg text-[#dbe1e8] max-w-2xl mx-auto">

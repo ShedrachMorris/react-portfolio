@@ -62,10 +62,6 @@ export default function About() {
           documented, and maintainable systems using NestJS, React, and Prisma. I recently automated booking workflows
           for LuxHome (reducing errors by 30%) and streamlined API documentation at Princeps Credit Systems (cutting
           integration issues by 40%). I don't just write code, I optimize the entire system, from database queries to user sessions.
-          <br /><br />
-          I am fueled by the thrill of problem-solving and am constantly seeking new challenges to push my boundaries.
-          Whether it's optimizing website performance, ensuring cross-browser compatibility, or implementing the latest
-          web development trends, I thrive on delivering solutions that not only meet but exceed expectations.
         </p>
       </div>
 
